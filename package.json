@@ -1,0 +1,34 @@
+{
+  "name": "bromba",
+  "version": "0.0.0",
+  "description": "Fast wasteful short buffer disk storage.",
+  "author": {
+    "name": "Damian Krzeminski",
+    "email": "pirxpilot@furkot.com",
+    "url": "https://pirxpilot.me"
+  },
+  "repository": "pirxpilot/bromba",
+  "license": "MIT",
+  "keywords": [
+    "bromba",
+    "cdb",
+    "storage"
+  ],
+  "dependencies": {
+    "async": "~2",
+    "async-cache": "~1"
+  },
+  "devDependencies": {
+    "jshint": "~2",
+    "tap-dot": "~2",
+    "tape": "~4",
+    "tmp": "~0"
+  },
+  "scripts": {
+    "test": "make check"
+  },
+  "files": [
+    "index.js",
+    "lib"
+  ]
+}
