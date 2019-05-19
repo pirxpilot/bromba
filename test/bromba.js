@@ -31,9 +31,7 @@ test('putMany', function (t) {
   b.putMany(keys, values, function(err) {
     t.error(err);
 
-    b.close();
-    // close does not have callback - wait for disk write
-    setTimeout(t.end, 300);
+    b.close(t.end);
   });
 });
 
@@ -47,8 +45,7 @@ test('getMany', function (t) {
 
     vs.forEach((v, i) => t.same(v, values[i], `same value ${i}`));
 
-    b.close();
-    t.end();
+    b.close(t.end);
   });
 });
 
