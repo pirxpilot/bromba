@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "async": "~2",
-    "async-cache": "~1"
+    "async-cache": "~1",
+    "snappy": "^6.2.2"
   },
   "devDependencies": {
     "jshint": "~2",
