@@ -1,4 +1,9 @@
 
+0.0.3 / 2019-08-11
+==================
+
+ * fix returning empty buffer for out of range index
+
 0.0.2 / 2019-08-11
 ==================
 
