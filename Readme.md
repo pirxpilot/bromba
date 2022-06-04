@@ -1,7 +1,6 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][build-image]][build-url]
 [![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][deps-dev-image]][deps-dev-url]
 
 # bromba
 
@@ -41,14 +40,12 @@ db.getMany(keys, function(err, values) {
 
 MIT © [Damian Krzeminski](https://pirxpilot.me)
 
-[npm-image]: https://img.shields.io/npm/v/bromba.svg
+[npm-image]: https://img.shields.io/npm/v/bromba
 [npm-url]: https://npmjs.org/package/bromba
 
-[travis-url]: https://travis-ci.com/pirxpilot/bromba
-[travis-image]: https://img.shields.io/travis/com/pirxpilot/bromba.svg
+[build-url]: https://github.com/pirxpilot/bromba/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/workflow/status/pirxpilot/bromba/check
 
-[deps-image]: https://img.shields.io/david/pirxpilot/bromba.svg
-[deps-url]: https://david-dm.org/pirxpilot/bromba
+[deps-image]: https://img.shields.io/librariesio/release/npm/bromba
+[deps-url]: https://libraries.io/npm/bromba
 
-[deps-dev-image]: https://img.shields.io/david/dev/pirxpilot/bromba.svg
-[deps-dev-url]: https://david-dm.org/pirxpilot/bromba?type=dev
