@@ -20,20 +20,15 @@ const bromba = require('bromba');
 // all values will have to be 10 bytes Buffers
 let db = bromba('/path/to/my/db.dat', { vlen: 10 });
 
+// keys and values have to be Arrays of Buffer's
 let keys = [2, 3, 4].map(x => Buffer.from([x]));
 
-// keys and values have to be Arrays of Buffer's
-db.putMany(keys, values, function(err) {
-  // for each key in an keys set corresponding value from values
-});
+// for each key in an keys set corresponding value from values
+await db.putMany(keys, values)
 
 
-db.getMany(keys, function(err, values) {
-  if (err) {
-    // something went wrong
-  }
-  // values for each key from keys
-});
+// values for each key from keys
+const values = await db.getMany(keys);
 ```
 
 ## License
@@ -48,4 +43,3 @@ MIT © [Damian Krzeminski](https://pirxpilot.me)
 
 [deps-image]: https://img.shields.io/librariesio/release/npm/bromba
 [deps-url]: https://libraries.io/npm/bromba
-

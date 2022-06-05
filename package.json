@@ -15,14 +15,12 @@
     "storage"
   ],
   "dependencies": {
-    "async": "~2",
-    "async-cache": "~1",
-    "snappy": "^6.2.2"
+    "lru-cache": "^7.10.1",
+    "snappy": "~7"
   },
   "devDependencies": {
     "jshint": "~2",
-    "tap-dot": "~2",
-    "tape": "~4",
+    "tape": "~5",
     "tmp": "~0"
   },
   "scripts": {
