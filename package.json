@@ -1,6 +1,6 @@
 {
   "name": "bromba",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Fast wasteful short buffer disk storage.",
   "author": {
     "name": "Damian Krzeminski",
