@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@pirxpilot/jshint": "~3",
-    "tape": "~5",
     "tmp": "~0"
   },
   "scripts": {

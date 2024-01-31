@@ -1,4 +1,5 @@
-const test = require('tape');
+const test = require('node:test');
+const assert = require('node:assert/strict');
 const { dirSync } = require('tmp');
 
 const sector = require('../lib/sector');
@@ -7,7 +8,7 @@ const a = Buffer.from([0, 200]);
 const b = Buffer.from([0, 200]);
 const c = Buffer.from([0, 200]);
 
-test('memory sector', function (t) {
+test('memory sector', function () {
   const s = sector({ vlen: 2 });
 
   s.putValue(0, a);
@@ -15,15 +16,13 @@ test('memory sector', function (t) {
   s.putValue(140, c);
 
 
-  t.same(s.getValue(0), a);
-  t.same(s.getValue(50), b);
-  t.same(s.getValue(140), c);
-
-  t.end();
+  assert.deepEqual(s.getValue(0), a);
+  assert.deepEqual(s.getValue(50), b);
+  assert.deepEqual(s.getValue(140), c);
 });
 
 
-test('disk sector', function (t) {
+test('disk sector', async function (t) {
 
   let { name, removeCallback } = dirSync({
     prefix: 'bromba-',
@@ -32,27 +31,25 @@ test('disk sector', function (t) {
   name += '/ds/data.dat';
 
 
-  t.teardown(removeCallback);
+  const s = sector({ vlen: 2 });
+  s.putValue(0, a);
+  s.putValue(50, b);
+  s.putValue(140, c);
 
-  t.test('write', async function () {
-    const s = sector({ vlen: 2 });
-
-    s.putValue(0, a);
-    s.putValue(50, b);
-    s.putValue(140, c);
-
-    await s.writeToFile(name);
-  });
+  await s.writeToFile(name);
 
 
-  t.test('read', async function (t) {
+  await t.test('read', async function () {
     const s = sector({ vlen: 2 });
 
     const s1 = await s.readFromFile(name);
-    t.same(s1, s);
+    assert.deepEqual(s1, s);
 
-    t.same(s.getValue(0), a);
-    t.same(s.getValue(50), b);
-    t.same(s.getValue(140), c);
+    assert.deepEqual(s.getValue(0), a);
+    assert.deepEqual(s.getValue(50), b);
+    assert.deepEqual(s.getValue(140), c);
   });
+
+  removeCallback();
+
 });
