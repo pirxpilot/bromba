@@ -1,4 +1,11 @@
 
+0.1.1 / 2024-01-31
+==================
+
+ * upgrade lru-cache
+ * replace tape with node:test
+ * replace jshint with @pirxpilot/jshint
+
 0.1.0 / 2022-06-05
 ==================
 
