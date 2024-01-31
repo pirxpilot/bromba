@@ -39,7 +39,7 @@ MIT © [Damian Krzeminski](https://pirxpilot.me)
 [npm-url]: https://npmjs.org/package/bromba
 
 [build-url]: https://github.com/pirxpilot/bromba/actions/workflows/check.yaml
-[build-image]: https://img.shields.io/github/workflow/status/pirxpilot/bromba/check
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/bromba/check.yaml?branch=main
 
 [deps-image]: https://img.shields.io/librariesio/release/npm/bromba
 [deps-url]: https://libraries.io/npm/bromba
