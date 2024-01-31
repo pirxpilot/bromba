@@ -19,7 +19,7 @@
     "snappy": "~7"
   },
   "devDependencies": {
-    "jshint": "~2",
+    "@pirxpilot/jshint": "~3",
     "tape": "~5",
     "tmp": "~0"
   },
