@@ -1,4 +1,5 @@
-const test = require('tape');
+const test = require('node:test');
+const assert = require('node:assert/strict');
 const { dirSync } = require('tmp');
 
 const bromba = require('../');
@@ -8,8 +9,6 @@ test('bromba', async function (t) {
     prefix: 'bromba-',
     unsafeCleanup: true
   });
-
-  t.teardown(removeCallback);
 
   const keys = [
     [0, 0, 1, 2, 1],
@@ -33,17 +32,17 @@ test('bromba', async function (t) {
   await b.close();
 
 
-  t.test('getMany', async function (t) {
+  await t.test('getMany', async function () {
 
     const b = bromba(name, { vlen: 2 });
     const vs = await b.getMany(keys);
 
-    vs.forEach((v, i) => t.same(v, values[i], `same value ${i}`));
+    vs.forEach((v, i) => assert.deepEqual(v, values[i], `same value ${i}`));
 
     await b.close();
   });
 
-  t.test('getMany with missing key', async function (t) {
+  await t.test('getMany with missing key', async function () {
 
     const b = bromba(name, { vlen: 2 });
 
@@ -56,12 +55,13 @@ test('bromba', async function (t) {
 
     const vs = await b.getMany(keys);
 
-    t.same(vs[0], values[0], `same value 0`);
-    t.same(vs[1], Buffer.alloc(2));
-    t.same(vs[2], values[2], `same value 2`);
-    t.same(vs[3], Buffer.alloc(2));
+    assert.deepEqual(vs[0], values[0], `same value 0`);
+    assert.deepEqual(vs[1], Buffer.alloc(2));
+    assert.deepEqual(vs[2], values[2], `same value 2`);
+    assert.deepEqual(vs[3], Buffer.alloc(2));
 
     await b.close();
   });
 
+  removeCallback();
 });
