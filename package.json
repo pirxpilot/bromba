@@ -15,7 +15,7 @@
     "storage"
   ],
   "dependencies": {
-    "lru-cache": "^7.10.1",
+    "lru-cache": "~10",
     "snappy": "~7"
   },
   "devDependencies": {
